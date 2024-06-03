@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <base href=".">
+    <link rel="icon" href="./textures/favicon_io/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AREXVY EPIC LAUNCH EVENT 2024</title>
+  </head>
+  <body>
+
+    <!-- <img src="UI/cover.jpg" class="cover_art">
+    <img src="UI/company_logo.png" class="company_logo">
+    <img src="UI/job_title.png" class="job_title">
+    <img src="UI/code.png" class="code_name">
+
+    <div class="side_buttons">
+      <a href="https://qrpass.cc/to/gilead/Trodelvy-Launch-Symposium/apply.aspx"><img src="UI/b1.png"></a>
+      <a href="https://qrpass.cc/to/gilead/Trodelvy-Launch-Symposium/speaker.aspx"><img src="UI/b3.png"></a>
+      <a href="https://qrpass.cc/to/gilead/Trodelvy-Launch-Symposium/index.aspx"><img src="UI/b2.png"></a>
+    </div>   -->
+
+    <video id="webcam"></video>
+    
+    <!-- <video id="video" playsInline muted preload="auto">
+      <source src="/texture/04_1-2.mov" type="video/quicktime">
+      <source src="/texture/movie_alpha.webm" type="video/webm">
+    </video> -->
+
+    <canvas id="canvas_id"></canvas>
+
+    <script src="https://cdn.jsdelivr.net/gh/aframevr/aframe@1.3.0/dist/aframe-master.min.js"></script>
+    <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js"></script>
+
+
+    <a-scene
+    device-orientation-permission-ui="enabled: false"
+    vr-mode-ui="enabled: false;"
+    renderer="logarithmicDepthBuffer: true;"
+    embedded
+    arjs="trackingMethod: best; sourceType: webcam;debugUIEnabled: false;">
+
+      <!-- we use cors proxy to avoid cross-origin problems ATTENTION! you need to set up your server -->
+      <a-nft
+      markerhandler
+      type="nft"
+      url="https://file-examples.com/storage/fe4e1227086659fa1a24064/2017/10/file_example_JPG_100kB.jpg" >
+    </a-nft>
+    
+      <a-entity camera></a-entity>
+    </a-scene>
+
+        <!-- <script type="module" src="/src/main.ts"></script> -->
+  </body>
+</html>
