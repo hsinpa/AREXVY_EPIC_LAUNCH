@@ -5,13 +5,13 @@
     <base href=".">
     <link rel="icon" href="./textures/favicon_io/favicon.ico">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>2023 Trodelvy® Launch Symposium</title>
-    <script type="module" crossorigin src="./assets/index-8f36af0a.js"></script>
-    <link rel="stylesheet" href="./assets/index-7b1c4b4b.css">
+    <title>AREXVY EPIC LAUNCH EVENT 2024</title>
+    <script type="module" crossorigin src="./assets/index-8590ad92.js"></script>
+    <link rel="stylesheet" href="./assets/index-c4f0d3a3.css">
   </head>
   <body>
 
-    <img src="UI/cover.jpg" class="cover_art">
+    <!-- <img src="UI/cover.jpg" class="cover_art">
     <img src="UI/company_logo.png" class="company_logo">
     <img src="UI/job_title.png" class="job_title">
     <img src="UI/code.png" class="code_name">
@@ -20,17 +20,60 @@
       <a href="https://qrpass.cc/to/gilead/Trodelvy-Launch-Symposium/apply.aspx"><img src="UI/b1.png"></a>
       <a href="https://qrpass.cc/to/gilead/Trodelvy-Launch-Symposium/speaker.aspx"><img src="UI/b3.png"></a>
       <a href="https://qrpass.cc/to/gilead/Trodelvy-Launch-Symposium/index.aspx"><img src="UI/b2.png"></a>
-    </div>  
+    </div>   -->
+
+    <button id="video_start_btn" style="display: none;">Process Btn</button>
 
     <video id="webcam"></video>
     
-    <video id="video" playsInline muted preload="auto">
-      <source src="./texture/04_1-2.mov" type="video/quicktime">
-      <source src="./texture/movie_alpha.webm" type="video/webm">
-    </video>
+    <div id="video_container">
+      <video id="video" style="display: none;" playsInline muted preload="auto">
+        <source src="./texture/04_1-2.mov" type="video/quicktime">
+        <source src="./texture/movie_alpha.webm" type="video/webm">
+      </video>  
+    </div>
 
     <canvas id="canvas_id"></canvas>
 
-    
+    <script src="https://cdn.jsdelivr.net/gh/aframevr/aframe@1.3.0/dist/aframe-master.min.js"></script>
+    <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js"></script>
+
+    <script>
+      AFRAME.registerComponent('markerhandler', {
+        init: function() {
+          console.log('Marker Init');
+          console.log(this.el.sceneEl);
+          this.el.sceneEl.addEventListener('markerFound', () => {
+            console.log("Marker Found");
+            window._glich_effect.on_image_detected();
+          });
+
+          this.el.sceneEl.addEventListener('markerLost', () => {
+            console.log("Marker Lost");
+          });
+        }
+      })
+    </script>
+
+    <div id="aframe_embedded">
+      <a-scene
+      device-orientation-permission-ui="enabled: false"
+      vr-mode-ui="enabled: false;"
+      renderer="logarithmicDepthBuffer: true;"
+      embedded
+      arjs="trackingMethod: best; sourceType: webcam;debugUIEnabled: false;">
+  
+        <a-nft
+        markerhandler
+        smooth="true"
+        type="nft"
+        url="/texture/image_tracking/image_tracking" >
+      </a-nft>
+      
+      </a-scene>
+    </div>
+
+
+      
   </body>
 </html>
