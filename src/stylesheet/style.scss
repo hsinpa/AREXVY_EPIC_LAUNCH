@@ -3,19 +3,34 @@ body {
     margin: 0;
 }
 
-#webcam {
-    position :fixed;    
-    top:-100em;
-    left:-100em;
-    width: 1em;
-    height: 1em;
+html {
+    width: 100vw;
+    height:100%;
+    overflow:hidden;
 }
 
+#webcam {
+    height: 100%;
+    width: 100%;
+}
+
+#video_start_btn {
+    position: absolute;
+    top: 50%; right: 50%;
+    transform: translate(50%,-50%);
+    z-index: 100;
+    font-size: 1.5em;
+}
+
+#video_container {
+}
 #video {
     position: absolute;
     top: 50%; right: 50%;
     transform: translate(50%,-50%);
     height: 80%;
+    z-index: 5;
+    // display: none;
 }
 
 .cover_art {
@@ -70,4 +85,6 @@ body {
 #canvas_id {
     width: 100%;
     height: 100%;
+    visibility: hidden;
+    display: none;
 }

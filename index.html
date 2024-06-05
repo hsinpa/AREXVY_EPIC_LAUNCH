@@ -20,12 +20,16 @@
       <a href="https://qrpass.cc/to/gilead/Trodelvy-Launch-Symposium/index.aspx"><img src="UI/b2.png"></a>
     </div>   -->
 
+    <button id="video_start_btn" style="display: none;">Process Btn</button>
+
     <video id="webcam"></video>
     
-    <!-- <video id="video" playsInline muted preload="auto">
-      <source src="/texture/04_1-2.mov" type="video/quicktime">
-      <source src="/texture/movie_alpha.webm" type="video/webm">
-    </video> -->
+    <div id="video_container">
+      <video id="video" style="display: none;" playsInline muted preload="auto">
+        <source src="/texture/04_1-2.mov" type="video/quicktime">
+        <source src="/texture/movie_alpha.webm" type="video/webm">
+      </video>  
+    </div>
 
     <canvas id="canvas_id"></canvas>
 
@@ -39,28 +43,35 @@
           console.log(this.el.sceneEl);
           this.el.sceneEl.addEventListener('markerFound', () => {
             console.log("Marker Found");
+            window._glich_effect.on_image_detected();
+          });
+
+          this.el.sceneEl.addEventListener('markerLost', () => {
+            console.log("Marker Lost");
           });
         }
       })
     </script>
 
-    <a-scene
-    device-orientation-permission-ui="enabled: false"
-    vr-mode-ui="enabled: false;"
-    renderer="logarithmicDepthBuffer: true;"
-    embedded
-    arjs="trackingMethod: best; sourceType: webcam;debugUIEnabled: false;">
+    <div id="aframe_embedded">
+      <a-scene
+      device-orientation-permission-ui="enabled: false"
+      vr-mode-ui="enabled: false;"
+      renderer="logarithmicDepthBuffer: true;"
+      embedded
+      arjs="trackingMethod: best; sourceType: webcam;debugUIEnabled: false;">
+  
+        <a-nft
+        markerhandler
+        smooth="true"
+        type="nft"
+        url="/texture/image_tracking/image_tracking" >
+      </a-nft>
+      
+      </a-scene>
+    </div>
 
-      <!-- we use cors proxy to avoid cross-origin problems ATTENTION! you need to set up your server -->
-      <a-nft
-      markerhandler
-      type="nft"
-      url="/texture/image_tracking/image_tracking" >
-    </a-nft>
-    
-      <a-entity camera></a-entity>
-    </a-scene>
 
-        <!-- <script type="module" src="/src/main.ts"></script> -->
+      <script type="module" src="/src/main.ts"></script>
   </body>
 </html>
