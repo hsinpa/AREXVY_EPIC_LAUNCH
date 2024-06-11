@@ -32,7 +32,10 @@ class GlitchEffect extends WebGLCanvas {
     _vertexFilePath: string;
     _fragmentFilePath: string;
     _start_btn_dom: HTMLButtonElement;
-
+    _ending_content_div: HTMLDivElement;
+    _restart_btn: HTMLButtonElement;
+    _job_title_icon: HTMLImageElement;
+    _scan_icon: HTMLImageElement;
 
     constructor(webgl_dom: string, vertexFilePath : string, fragmentFilePath : string) {
         super(webgl_dom);
@@ -43,23 +46,35 @@ class GlitchEffect extends WebGLCanvas {
     }
 
     reset() {
-        
+        this._videoDom.currentTime = 0;
+        this._videoDom.play();
+        this._videoRestartFlag = true;
+        this._ending_content_div.style.display = 'none';
+        this._restart_btn.style.display = 'none';
+        this._job_title_icon.style.display = 'block';
+        this._videoDom.style.display = 'block';
     }
 
     async on_image_detected() {
         if (this._imageDetectFlag) return;
 
+        this._scan_icon = document.querySelector('.scan_icon');
         this._start_btn_dom = document.querySelector('#video_start_btn');
+        this._ending_content_div = document.querySelector('.ending_content');
+        this._restart_btn = document.querySelector('#restart_btn');
+        this._job_title_icon = document.querySelector('.job_title_icon');
 
         console.log('on_image_detected');
         this._imageDetectFlag = true;
         this.SetCanvasSize();
         
         this._start_btn_dom.style.display = 'block';
+        this._job_title_icon.style.display = 'block';
+        this._scan_icon.style.display = 'none';
 
         this._start_btn_dom.addEventListener('click', async () => {
             this._start_btn_dom.style.display = 'none';
-
+            console.log('click');
             let main_video : HTMLVideoElement = document.querySelector('#video');
             let aframe_video : HTMLVideoElement = document.querySelector('#arjs-video');
     
@@ -67,6 +82,10 @@ class GlitchEffect extends WebGLCanvas {
             main_video.style.display = 'block';
             aframe_video.remove();    
         });
+
+        this._restart_btn.addEventListener('click', () => {
+            this.reset();
+        })
     }
 
     async InitProcess(vertexFilePath : string, fragmentFilePath : string) {
@@ -91,33 +110,14 @@ class GlitchEffect extends WebGLCanvas {
         this._videoRestartFlag = false;
 
         this._videoDom.addEventListener("ended", (event) => {
-            this._videoDom.currentTime = 0;
-            this._videoDom.play();
-            this._videoRestartFlag = true;
-          });
-
-
-        // this._videoDom.addEventListener("playing", (event) => {
-        //     if (this._videoRestartFlag) {
-        //         this._audioDom.currentTime = 0;
-        //         this._audioDom.play();
-        //         this._videoRestartFlag = false;
-        //     }
-        // });
-
-        // this._videoDom.addEventListener("pause", (event) => {
-        //     console.log("pause");
-        //     this._audioDom.pause();
-        // });
-
-        // this._videoDom.addEventListener("timeupdate", (event) => {
-        //     let diff = Math.abs(this._audioDom.currentTime - this._videoDom.currentTime);
-
-        //     if (this._audioDom.paused && diff > 0.5) {
-        //        this._audioDom.currentTime = this._audioDom.currentTime = this._videoDom.currentTime;
-        //        this._audioDom.play();                
-        //     }
-        // });
+            // this._videoDom.currentTime = 0;
+            // this._videoDom.play();
+            // this._videoRestartFlag = true;
+            this._ending_content_div.style.display = 'block';
+            this._restart_btn.style.display = 'block';
+            this._job_title_icon.style.display = 'none';
+            this._videoDom.style.display = 'none';
+        });
 
         await DoDelayAction(200);
         if (this._webcamDom == null)

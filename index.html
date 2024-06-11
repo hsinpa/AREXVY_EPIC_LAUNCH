@@ -7,7 +7,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>AREXVY EPIC LAUNCH EVENT 2024</title>
   </head>
-  <body>
+  
+  <script src="https://cdn.jsdelivr.net/gh/aframevr/aframe@1.6.0/dist/aframe-master.min.js"></script>
+  <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js"></script>
+  <body style="margin: 0px; overflow: hidden;">
 
     <!-- <img src="UI/cover.jpg" class="cover_art">
     <img src="UI/company_logo.png" class="company_logo">
@@ -20,21 +23,60 @@
       <a href="https://qrpass.cc/to/gilead/Trodelvy-Launch-Symposium/index.aspx"><img src="UI/b2.png"></a>
     </div>   -->
 
-    <button id="video_start_btn" style="display: none;">Process Btn</button>
+    <img src="/UI/confirm.png" style="display: none;" id="video_start_btn"></img>
+    <img class="scan_icon" src="/UI/camera.png" style="display: none;"></img>
+    <img class="job_title_icon" src="/UI/job_title.png" style="display: none;"></img>
+    <img src="/UI/replay.png" id="restart_btn" style="display: none;"></button>
+
+    <div class="ending_content" >
+
+      <h3>AREXVY簡易安全資訊</h3>
+      <p>[許可證字號] 衛部菌疫輸字第001251號 [中文產品名稱] 欣剋融呼吸道融合病毒疫苗 [禁忌症] 
+        對本疫苗的活性成分或任何組成嚴重過敏。[警語及注意事項] 和所有的注射用疫苗一樣，應隨時備妥適當的醫療與監督措施，
+        以防接種此疫苗之後發生過敏性事件。罹患急性嚴重發燒性疾病的病人宜延後接種Arexvy。並非所有的疫苗接種者都可產生具保護性的免疫反應。
+        切勿以血管內或皮內注射的方式投予本疫苗。對患有血小板減少症或任何凝血障礙疾病的人施打Arexvy時應謹慎。[不良反應] 在60歲以上的
+        受試者中，最常通報的不良反應為注射部位疼痛(61%)、疲倦(34%)、肌痛(29%)、頭痛(28%)及關節痛 (18%)
+        【仿單版本編號」GDSvO2(27/02/2024) 
+      </p>
+
+      <span>僅提供給台灣專業醫療人員使用<br>PM-TW-RSA-VID一240002 | Date of preparation: June 2024<br>
+        @2024 GSK group of companies or its licensor. Trade marks are owned by or licensed to the GSK group of companies. <br>
+        荷商葛蘭素史克藥廠(股)台灣分公司100台北市忠孝西路一段66號23樓<br>若有不良事件可通報至葛蘭素史克藥廠<br>
+        通報電話：(02)23126836,通報網址:oax40892@gsk.com <br><br>
+        Reference:1. Taiwan Arexvy PI_GDSvO2 </span>
+        <br>
+
+    </div>
+    <a href="https://mcp.fda.gov.tw/im_detail_1/衛部菌疫輸字第001251號" id="outer_link"><img src="/UI/outer_link.png" ></img></a>
 
     <video id="webcam"></video>
     
     <div id="video_container">
       <video id="video" style="display: none;" playsInline muted preload="auto">
         <source src="/texture/04_1-2.mov" type="video/quicktime">
-        <source src="/texture/movie_alpha.webm" type="video/webm">
-      </video>  
+        <source src="/texture/video_webm.webm" type="video/webm">
+      </video>
     </div>
 
     <canvas id="canvas_id"></canvas>
 
-    <script src="https://cdn.jsdelivr.net/gh/aframevr/aframe@1.3.0/dist/aframe-master.min.js"></script>
-    <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js"></script>
+    <div id="aframe_embedded">
+      <a-scene 
+      device-orientation-permission-ui="enabled: false"
+      vr-mode-ui="enabled: false;"
+      xr-mode-ui="enabled: false;"
+      renderer="logarithmicDepthBuffer: true;"
+      arjs="trackingMethod: best; sourceType: webcam;debugUIEnabled: false;">
+      
+        <a-nft
+        markerhandler
+        smooth="true"
+        type="nft"
+        url="/texture/image_tracking/image_tracking" >
+      </a-nft>
+      </a-scene>
+    </div>
+
 
     <script>
       AFRAME.registerComponent('markerhandler', {
@@ -52,26 +94,6 @@
         }
       })
     </script>
-
-    <div id="aframe_embedded">
-      <a-scene
-      device-orientation-permission-ui="enabled: false"
-      vr-mode-ui="enabled: false;"
-      renderer="logarithmicDepthBuffer: true;"
-      embedded
-      arjs="trackingMethod: best; sourceType: webcam;debugUIEnabled: false;">
-  
-        <a-nft
-        markerhandler
-        smooth="true"
-        type="nft"
-        url="/texture/image_tracking/image_tracking" >
-      </a-nft>
-      
-      </a-scene>
-    </div>
-
-
-      <script type="module" src="/src/main.ts"></script>
+    <script type="module" src="/src/main.ts"></script>
   </body>
 </html>
