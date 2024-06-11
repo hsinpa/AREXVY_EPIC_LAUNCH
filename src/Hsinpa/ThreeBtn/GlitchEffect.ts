@@ -33,6 +33,7 @@ class GlitchEffect extends WebGLCanvas {
     _fragmentFilePath: string;
     _start_btn_dom: HTMLButtonElement;
     _ending_content_div: HTMLDivElement;
+    _redirect_url_btn: HTMLButtonElement;
     _restart_btn: HTMLButtonElement;
     _job_title_icon: HTMLImageElement;
     _scan_icon: HTMLImageElement;
@@ -50,9 +51,11 @@ class GlitchEffect extends WebGLCanvas {
         this._videoDom.play();
         this._videoRestartFlag = true;
         this._ending_content_div.style.display = 'none';
+        this._redirect_url_btn.style.display='none';
         this._restart_btn.style.display = 'none';
         this._job_title_icon.style.display = 'block';
         this._videoDom.style.display = 'block';
+        
     }
 
     async on_image_detected() {
@@ -61,6 +64,7 @@ class GlitchEffect extends WebGLCanvas {
         this._scan_icon = document.querySelector('.scan_icon');
         this._start_btn_dom = document.querySelector('#video_start_btn');
         this._ending_content_div = document.querySelector('.ending_content');
+        this._redirect_url_btn = document.querySelector('#outer_link');
         this._restart_btn = document.querySelector('#restart_btn');
         this._job_title_icon = document.querySelector('.job_title_icon');
 
@@ -114,6 +118,7 @@ class GlitchEffect extends WebGLCanvas {
             // this._videoDom.play();
             // this._videoRestartFlag = true;
             this._ending_content_div.style.display = 'block';
+            this._redirect_url_btn.style.display='block';
             this._restart_btn.style.display = 'block';
             this._job_title_icon.style.display = 'none';
             this._videoDom.style.display = 'none';
