@@ -57,6 +57,7 @@ html {
     position: absolute;
     right: 5px;
     bottom: 5px;
+    width: 14em;
 
     img {
         width: 14em;
@@ -91,7 +92,7 @@ html {
     top: 50%; right: 50%;
     transform: translate(50%,-50%);
     z-index: 10;
-    width: 55%;
+    width: 50vw;
 }
 
 #video {
