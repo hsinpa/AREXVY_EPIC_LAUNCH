@@ -14,14 +14,28 @@ html {
 }
 
 .ending_content {
-    width: 80vw;
-    position: absolute;
-    display: block;
-    padding: 1em;
-    top: 50%; left: 50%;
-    transform: translate(-50%,-50%);
+    width: 100%;
+    height: 100%;
+    display: flex;
 
-    background-color: rgba(71,57,98, 0.4);
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top:0;
+    bottom: 0;
+    right: 0;
+    left:0;
+    margin: auto;
+
+    .ending_description {
+        width: 95vw;
+        height: 80vh;
+        position: relative;
+        background-image: url('/UI/description.png');
+        background-position: center center;
+        background-size: 100% 100%;
+        background-repeat: no-repeat;    
+    }
 
     h3, p, span {
         color: white;
@@ -53,26 +67,26 @@ html {
 }
 
 #outer_link {
-    z-index: 10;
+    z-index: 100;
     position: absolute;
-    right: 5px;
-    bottom: 5px;
-    width: 14em;
+    right: 0.5em;
+    bottom: 1em;
+    width: 12em;
 
     img {
-        width: 14em;
+        width: 12em;
     }
 }
 .job_title_icon {
     position: absolute;
-    top: 8%; left: 2%;
+    top: 9%; left: 2%;
     transform: translate(0%, 50%);
-    width: 12em;
+    width: 8em;
 }
 
 #restart_btn {
     position: absolute;
-    top: 1em; right: 0%;
+    top: 2em; right: -2em;
     width: 8em;
     z-index: 100;
 }
@@ -93,6 +107,19 @@ html {
     transform: translate(50%,-50%);
     z-index: 10;
     width: 50vw;
+    background-color: rgba(96,85,101, 0.8);
+    text-align: center;
+    padding: 0.5em 2em;
+
+    p {
+        font-size: 1.2em;
+        font-weight: 600;
+        color: white;
+    }
+
+    img {
+        width: 10em;
+    }
 }
 
 #video {

@@ -51,8 +51,6 @@ class GlitchEffect extends WebGLCanvas {
         this._videoDom.play();
         this._videoRestartFlag = true;
         this._ending_content_div.style.display = 'none';
-        this._redirect_url_btn.style.display='none';
-        this._restart_btn.style.display = 'none';
         this._job_title_icon.style.display = 'block';
         this._videoDom.style.display = 'block';
         
@@ -73,11 +71,12 @@ class GlitchEffect extends WebGLCanvas {
         this.SetCanvasSize();
         
         this._start_btn_dom.style.display = 'block';
-        this._job_title_icon.style.display = 'block';
         this._scan_icon.style.display = 'none';
 
         this._start_btn_dom.addEventListener('click', async () => {
             this._start_btn_dom.style.display = 'none';
+            this._job_title_icon.style.display = 'block';
+
             console.log('click');
             let main_video : HTMLVideoElement = document.querySelector('#video');
             let aframe_video : HTMLVideoElement = document.querySelector('#arjs-video');
@@ -117,14 +116,14 @@ class GlitchEffect extends WebGLCanvas {
             // this._videoDom.currentTime = 0;
             // this._videoDom.play();
             // this._videoRestartFlag = true;
-            this._ending_content_div.style.display = 'block';
-            this._redirect_url_btn.style.display='block';
-            this._restart_btn.style.display = 'block';
+            this._ending_content_div.style.display = 'flex';
+
             this._job_title_icon.style.display = 'none';
             this._videoDom.style.display = 'none';
         });
 
         await DoDelayAction(200);
+
         if (this._webcamDom == null)
             this._webcamTexture = this.reglCanvas.texture();
          else 

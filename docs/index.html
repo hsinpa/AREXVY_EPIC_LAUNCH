@@ -6,8 +6,8 @@
     <link rel="icon" href="./textures/favicon_io/favicon.ico">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>AREXVY EPIC LAUNCH EVENT 2024</title>
-    <script type="module" crossorigin src="./assets/index-c1325435.js"></script>
-    <link rel="stylesheet" href="./assets/index-102dbfda.css">
+    <script type="module" crossorigin src="./assets/index-cfe08a1c.js"></script>
+    <link rel="stylesheet" href="./assets/index-8ccba06c.css">
   </head>
   
   <script src="https://cdn.jsdelivr.net/gh/aframevr/aframe@1.6.0/dist/aframe-master.min.js"></script>
@@ -25,14 +25,24 @@
       <a href="https://qrpass.cc/to/gilead/Trodelvy-Launch-Symposium/index.aspx"><img src="UI/b2.png"></a>
     </div>   -->
 
-    <img src="./UI/confirm.png" style="display: none;" id="video_start_btn"></img>
-    <img class="scan_icon" src="./UI/camera.png" style="display: none;"></img>
+    <div id="video_start_btn" style="display: none;">
+      <p>請點擊確認影片播放</p>
+      <img src="./UI/confirm.png" ></img>
+    </div>
+
+    <img class="scan_icon" src="./UI/camera.png"></img>
     <img class="job_title_icon" src="./UI/job_title.png" style="display: none;"></img>
-    <img src="./UI/replay.png" id="restart_btn" style="display: none;"></button>
 
     <div class="ending_content" style="display: none;">
 
-      <h3>AREXVY簡易安全資訊</h3>
+      <div class="ending_description">
+        <img src="./UI/replay.png" id="restart_btn"></button>
+        <a href="https://mcp.fda.gov.tw/im_detail_1/衛部菌疫輸字第001251號" id="outer_link"><img src="./UI/outer_link.png" ></img></a>  
+      </div>
+
+
+
+      <!-- <h3>AREXVY簡易安全資訊</h3>
       <p>[許可證字號] 衛部菌疫輸字第001251號 [中文產品名稱] 欣剋融呼吸道融合病毒疫苗 [禁忌症] 
         對本疫苗的活性成分或任何組成嚴重過敏。[警語及注意事項] 和所有的注射用疫苗一樣，應隨時備妥適當的醫療與監督措施，
         以防接種此疫苗之後發生過敏性事件。罹患急性嚴重發燒性疾病的病人宜延後接種Arexvy。並非所有的疫苗接種者都可產生具保護性的免疫反應。
@@ -46,10 +56,9 @@
         荷商葛蘭素史克藥廠(股)台灣分公司100台北市忠孝西路一段66號23樓<br>若有不良事件可通報至葛蘭素史克藥廠<br>
         通報電話：(02)23126836,通報網址:oax40892@gsk.com <br><br>
         Reference:1. Taiwan Arexvy PI_GDSvO2 </span>
-        <br>
+        <br> -->
 
     </div>
-    <a href="https://mcp.fda.gov.tw/im_detail_1/衛部菌疫輸字第001251號" id="outer_link" style="display: none;"><img src="./UI/outer_link.png" ></img></a>
 
     <video id="webcam"></video>
     
