@@ -77,11 +77,28 @@ html {
         width: 12em;
     }
 }
+
 .job_title_icon {
     position: absolute;
     top: 9%; left: 2%;
     transform: translate(0%, 50%);
     width: 8em;
+}
+
+.fadeInAnim {
+    animation: fadeInAnimation ease 2s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+
+@keyframes fadeInAnimation {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
 }
 
 #restart_btn {

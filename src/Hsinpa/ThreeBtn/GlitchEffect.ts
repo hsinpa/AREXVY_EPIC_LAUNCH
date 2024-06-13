@@ -51,9 +51,12 @@ class GlitchEffect extends WebGLCanvas {
         this._videoDom.play();
         this._videoRestartFlag = true;
         this._ending_content_div.style.display = 'none';
-        this._job_title_icon.style.display = 'block';
         this._videoDom.style.display = 'block';
-        
+
+        setTimeout(() => {
+            this._job_title_icon.style.display = 'block';
+            this._job_title_icon.classList.add('fadeInAnim');
+        }, 11100);
     }
 
     async on_image_detected() {
@@ -75,7 +78,12 @@ class GlitchEffect extends WebGLCanvas {
 
         this._start_btn_dom.addEventListener('click', async () => {
             this._start_btn_dom.style.display = 'none';
-            this._job_title_icon.style.display = 'block';
+
+            setTimeout(() => {
+                this._job_title_icon.style.display = 'block';
+                this._job_title_icon.classList.add('fadeInAnim');
+            }, 11100);
+  
 
             console.log('click');
             let main_video : HTMLVideoElement = document.querySelector('#video');
@@ -119,6 +127,8 @@ class GlitchEffect extends WebGLCanvas {
             this._ending_content_div.style.display = 'flex';
 
             this._job_title_icon.style.display = 'none';
+            this._job_title_icon.classList.remove('fadeInAnim');
+
             this._videoDom.style.display = 'none';
         });
 
