@@ -97,6 +97,8 @@ class GlitchEffect extends WebGLCanvas {
         this._restart_btn.addEventListener('click', () => {
             this.reset();
         })
+
+
     }
 
     async InitProcess(vertexFilePath : string, fragmentFilePath : string) {
@@ -123,7 +125,7 @@ class GlitchEffect extends WebGLCanvas {
         this._videoDom.addEventListener("ended", (event) => {
             // this._videoDom.currentTime = 0;
             // this._videoDom.play();
-            // this._videoRestartFlag = true;
+            this._videoRestartFlag = true;
             this._ending_content_div.style.display = 'flex';
 
             this._job_title_icon.style.display = 'none';

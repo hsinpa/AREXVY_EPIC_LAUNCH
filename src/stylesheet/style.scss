@@ -116,6 +116,22 @@ html {
     width: 60%;
 }
 
+.alert_meesage {
+    position: absolute;
+    top: 50%; right: 50%;
+    transform: translate(50%,-50%);
+    z-index: 10;
+    width: 50vw;
+    background-color: rgba(96,85,101, 0.8);
+    text-align: center;
+    padding: 0.5em 2em;
+
+    p {
+        font-size: 1.2em;
+        font-weight: 600;
+        color: white;
+    }
+}
 
 
 #video_start_btn {
