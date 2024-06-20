@@ -56,7 +56,7 @@ class GlitchEffect extends WebGLCanvas {
         setTimeout(() => {
             this._job_title_icon.style.display = 'block';
             this._job_title_icon.classList.add('fadeInAnim');
-        }, 11100);
+        }, 15000);
     }
 
     async on_image_detected() {
@@ -82,7 +82,7 @@ class GlitchEffect extends WebGLCanvas {
             setTimeout(() => {
                 this._job_title_icon.style.display = 'block';
                 this._job_title_icon.classList.add('fadeInAnim');
-            }, 11100);
+            }, 15000);
   
 
             console.log('click');
