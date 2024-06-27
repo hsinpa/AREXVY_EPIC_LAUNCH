@@ -29,8 +29,8 @@ window._glich_effect = glitchEffect;
 
 window.onfocus = function() {
     if (glitchEffect._videoRestartFlag) {
-      const url = new URL(window.location.href);
-      url.searchParams.set('reloadTime', Date.now().toString());
-      window.location.href = url.toString();        
+        const url = new URL(window.location.href);
+        url.searchParams.set('reloadTime', Date.now().toString());
+        window.location.href = url.toString();        
     }
 }
