@@ -29,5 +29,5 @@ window._glich_effect = glitchEffect;
 
 window.onfocus = function() {
     if (glitchEffect._videoRestartFlag)
-        location.reload();
+        location.reload(true);
 }
