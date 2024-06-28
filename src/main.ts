@@ -26,11 +26,10 @@ window.onload = function() {
 declare let window: any;
 window._glich_effect = glitchEffect;
 
-
-window.onfocus = function() {
+document.addEventListener("visibilitychange", () => {
     if (glitchEffect._videoRestartFlag) {
         const url = new URL(window.location.href);
         url.searchParams.set('reloadTime', Date.now().toString());
         window.location.href = url.toString();        
     }
-}
+});
