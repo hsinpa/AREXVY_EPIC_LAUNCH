@@ -26,10 +26,10 @@ window.onload = function() {
 declare let window: any;
 window._glich_effect = glitchEffect;
 
-document.addEventListener("visibilitychange", () => {
-    if (glitchEffect._videoRestartFlag) {
-        const url = new URL(window.location.href);
-        url.searchParams.set('reloadTime', Date.now().toString());
-        window.location.href = url.toString();        
-    }
-});
+// document.addEventListener("visibilitychange", () => {
+//     if (glitchEffect._videoRestartFlag) {
+//         const url = new URL(window.location.href);
+//         url.searchParams.set('reloadTime', Date.now().toString());
+//         window.location.href = url.toString();        
+//     }
+// });
